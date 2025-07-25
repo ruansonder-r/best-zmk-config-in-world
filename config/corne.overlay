@@ -1,0 +1,27 @@
+/ {
+    chosen {
+        zmk,status-screen = &lightning_status_screen;
+    };
+};
+
+&nice_view_spi {
+    cs-gpios = <&pro_micro 0 GPIO_ACTIVE_HIGH>;
+};
+
+&nice_view_spi_sck {
+    drive-strength = <2>;
+};
+
+&nice_view_spi_mosi {
+    drive-strength = <2>;
+};
+
+&nice_view_spi_cs {
+    drive-strength = <2>;
+};
+
+// Lightning status screen device
+lightning_status_screen: lightning_status_screen {
+    compatible = "zmk,status-screen";
+    label = "lightning_status_screen";
+}; 
