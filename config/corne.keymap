@@ -44,7 +44,7 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&kp TAB    &kp Q  &kp W  &kp E  &kp R         &kp T        &kp Y    &kp U      &kp I      &kp O    &kp P     &mt BSPC DELETE
+&kp TAB    &kp Q  &kp W  &kp E  &kp R         &kp T        &kp Y    &kp U      &kp I      &kp O    &kp P     &kp BSPC
 &kp LCTRL  &kp A  &kp S  &kp D  &kp F         &kp G        &kp H    &kp J      &kp K      &kp L    &kp SEMI  &kp SQT
 &kp LSHFT  &kp Z  &kp X  &kp C  &kp V         &kp B        &kp N    &kp M      &kp COMMA  &kp DOT  &kp FSLH  &mt LEFT_ALT ESCAPE
                          &mo 1  &kp LEFT_GUI  &kp SPACE    &kp RET  &kp LCTRL  &mo 2
@@ -83,10 +83,10 @@
 
         layer_3 {
             bindings = <
-&trans  &trans  &trans  &macro_split  &new_macro  &tmux_leader    &tmux_leader  &new_macro  &macro_split  &trans  &trans  &trans
-&trans  &trans  &trans  &trans        &trans      &trans          &trans        &trans      &trans        &trans  &trans  &trans
-&trans  &trans  &trans  &trans        &trans      &trans          &trans        &trans      &trans        &trans  &trans  &trans
-                        &tog 0        &trans      &trans          &trans        &trans      &tog 0
+&trans  &trans  &trans  &macro_split  &new_macro  &tmux_leader    &tmux_leader      &new_macro  &macro_split  &trans  &trans  &trans
+&trans  &trans  &trans  &trans        &trans      &kp CAPSLOCK    &kp LS(K_COFFEE)  &trans      &trans        &trans  &trans  &trans
+&trans  &trans  &trans  &trans        &trans      &trans          &trans            &trans      &trans        &trans  &trans  &trans
+                        &tog 0        &trans      &trans          &trans            &trans      &tog 0
             >;
         };
     };
