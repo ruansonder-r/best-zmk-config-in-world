@@ -10,6 +10,29 @@
 #include <dt-bindings/zmk/pointing.h>
 
 / {
+    macros {
+        tmux_leader: tmux_new {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp RCTRL &kp Q>;
+            label = "TMUX_NEW";
+        };
+
+        new_macro: new_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp RCTRL &kp Q &kp C>;
+            label = "NEW_MACRO";
+        };
+
+        macro_split: macro_split {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp RCTRL &kp Q &kp PERCENT>;
+            label = "MACRO_SPLIT";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -56,6 +79,24 @@
 &kp LSHFT  &trans    &trans  &trans          &msc SCRL_RIGHT  &msc SCRL_DOWN    &kp UNDER  &kp PLUS   &kp LBRC   &kp RBRC  &kp PIPE  &kp TILDE
                              &msc SCRL_DOWN  &kp LEFT_GUI     &kp SPACE         &kp RET    &trans     &kp RALT
             >;
+        };
+
+        layer_3 {
+            bindings = <
+&trans  &trans  &trans  &macro_split  &new_macro  &tmux_leader    &tmux_leader  &new_macro  &macro_split  &trans  &trans  &trans
+&trans  &trans  &trans  &trans        &trans      &trans          &trans        &trans      &trans        &trans  &trans  &trans
+&trans  &trans  &trans  &trans        &trans      &trans          &trans        &trans      &trans        &trans  &trans  &trans
+                        &trans        &trans      &trans          &trans        &trans      &trans
+            >;
+        };
+    };
+
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+
+        layar3 {
+            if-layers = <1 2>;
+            then-layer = <3>;
         };
     };
 };
